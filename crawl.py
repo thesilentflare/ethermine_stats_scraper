@@ -47,14 +47,16 @@ try:
     driver.get(URL)
 except:
     print("URL INVALID")
+    driver.quit()
     sys.exit(0)
 #driver.implicitly_wait(10)
-delay = 5
+delay = 15
 try:
-    myElem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div[2]/div[1]/div[3]/div[2]/div/div[3]/div/div[2]/span')))
+    myElem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div[2]/div[1]/div[3]/div[1]/div/div[3]/div/div[2]/span[1]')))
     print("Page is ready!")
 except TimeoutException:
     print("Loading took too much time!")
+    driver.quit()
     sys.exit(0)
 
 # Initial Variables
